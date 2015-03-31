@@ -15,7 +15,7 @@ here. The nature of this project, I decided, would preferably be as close to the
 actually approaching the eldritch horrors of electricity on the level which only electrical engineers can 
 gaze upon without losing their sanities entirely.
 
-I was lucky enough to be pointed toward Shira, a very engaging woman who created MOARBots, an initiative 
+I was lucky enough to be pointed toward Shira, a very engaging woman who created MOARBots, https://sites.google.com/site/moarbots/, an initiative 
 for low-budget, easily-accessible robotics. She very nicely supplied me with a care package of some fun bits 
 of hardware and sent me on my way. Along with the help of Google I’ve begun to decipher what she’s given me, 
 and so we arrive at the real meat of this post.
@@ -249,12 +249,13 @@ String getResponse(String AT_Command, int wait){
 
 {% endhighlight %}
 
-I’ve left GPIO0 floating for this sketch. 
 
-__A few problems I ran into__:
+A couple more notes:
+====================
 * If you flash the ESP8266 and the blue light just stays on, reset the Arduino without disconnecting it from power.
 It seems to be fine after reset.
 * CHPD __must__ be pulled high. This is the only configuration I’ve found that works.
+* I’ve left GPIO0 floating for this sketch. 
 
 What’s next?
 ============
