@@ -20,7 +20,6 @@ of hardware and sent me on my way. Along with the help of Google I’ve begun to
 and so we arrive at the real meat of this post.
 
 A list of the hardware I’ve been using is as follows:
-
 * ESP8266 wifi module, costs something like $3-$5
 * Arduino Leonardo
 * Breadboard adapter for the ESP8266 from embedded-labs.com
@@ -49,11 +48,10 @@ no need for any extra hardware. My wiring diagram is as follows:
 | 3.3V | VccA       | “ “               | “ ”
 | GND  | GND (both) | GND               | GND
 
-*note: only connect GPIO0 if you’re using a sketch that allows you to put the ESP8266 into programming mode.*
-*note 2: the TX of the ESP8266 can be directly connnected to the Arduino’s RX as it is still read as a high and 
+* __note:__ only connect GPIO0 if you’re using a sketch that allows you to put the ESP8266 into programming mode.
+* __note 2:__ the TX of the ESP8266 can be directly connnected to the Arduino’s RX as it is still read as a high and 
 that saves us a spot on the translator for something else.
-note 3: connect LEDs to whatever you want; I’ll be using two, one connected to 13 and one connected to 12 and of course grounded.*
-
+* __note 3:__ connect LEDs to whatever you want; I’ll be using two, one connected to 13 and one connected to 12 and of course grounded.
 The sketch I’ve used most successfully simply does a few checks and then connects to the internet using a user-provided SSID/password:
 
 {% highlight C %}
