@@ -20,6 +20,7 @@ of hardware and sent me on my way. Along with the help of Google I’ve begun to
 and so we arrive at the real meat of this post.
 
 A list of the hardware I’ve been using is as follows:
+
 * ESP8266 wifi module, costs something like $3-$5
 * Arduino Leonardo
 * Breadboard adapter for the ESP8266 from embedded-labs.com
