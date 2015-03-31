@@ -1,12 +1,3 @@
-# Site settings
-title: imgay
-email: v@8chan.co
-description: > # this means to ignore newlines until "baseurl:"
-  Sometimes I do things and I guess I should blog about them
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://neuromance.me" # the base hostname & protocol for your site
-# twitter_username: jekyllrb
-github_username:  lovelaced
-
-# Build settings
-markdown: kramdown
+name: Flex
+markdown: redcarpet
+pygments: true
