@@ -1,3 +1,3 @@
-name: Flex
+name: neuromance.me
 markdown: redcarpet
-pygments: true
+highligher: pygments
