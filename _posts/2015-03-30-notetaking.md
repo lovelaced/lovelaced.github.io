@@ -1,4 +1,3 @@
-notetaking:
 first, and robots
 ======
 
