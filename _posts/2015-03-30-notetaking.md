@@ -38,16 +38,16 @@ Finally, after plenty of trial and error, I found a wiring configuration which w
 over the internet suggested different pins pulled up/down/around/tied to caps/pulled up with resistors, but I found 
 no need for any extra hardware beyond what I’ve already listed. My wiring diagram is as follows:
 
-| Arduino | 3.3-5V Translator | Regulator | ESP8266
-------------------------------------------------
-| TX   | OE->OE     |                   | RX
-| RX   |            |                   | TX 
-| 8    | B1->A1     |                   | RST
-| 9    | B2->A2     |                   | CHPD
-| 10   | B3->B3     |                   | GPIO0
-| 5V   | VccB->VccA | VIN->Vout         | VCC, CHPD
-| 3.3V | VccA       | “ “               | “ ”
-| GND  | GND (both) | GND               | GND
+| Arduino    | 3.3-5V Translator | Regulator  | ESP8266     |
+| ---------- | ----------------- | ---------- | ----------- |
+| TX         | OE->OE            |            | RX          |
+| RX         |                   |            | TX          |
+| 8          | B1->A1            |            | RST         |
+| 9          | B2->A2            |            | CHPD        |
+| 10         | B3->B3            |            | GPIO0       |
+| 5V         | VccB->VccA        | VIN->Vout  | VCC, CHPD   |
+| 3.3V       | VccA              | “ “        | “ ”         |
+| GND        | GND (both)        | GND        | GND         |
 
 * __note:__ only connect GPIO0 if you’re using a sketch that allows you to put the ESP8266 into programming mode.
 * __note 2:__ the TX of the ESP8266 can be directly connnected to the Arduino’s RX as it is still read as a high and 
