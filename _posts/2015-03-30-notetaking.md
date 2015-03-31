@@ -45,7 +45,7 @@ no need for any extra hardware beyond what I’ve already listed. My wiring diag
 | 8          | B1->A1            |            | RST         |
 | 9          | B2->A2            |            | CHPD        |
 | 10         | B3->B3            |            | GPIO0       |
-| 5V         | VccB->VccA        | VIN->Vout  | VCC, CHPD   |
+| 5V         | VccB->VccA        | VIN->Vout       | VCC, CHPD   |
 | 3.3V       | VccA              | “ “        | “ ”         |
 | GND        | GND (both)        | GND        | GND         |
 
