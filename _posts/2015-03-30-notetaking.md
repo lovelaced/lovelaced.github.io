@@ -19,8 +19,8 @@ for low-budget, easily-accessible robotics. She very nicely supplied me with a c
 of hardware and sent me on my way. Along with the help of Google I’ve begun to decipher what she’s given me, 
 and so we arrive at the real meat of this post.
 
-A list of the hardware I’ve been using is as follows:
-
+Hardware list:
+==============
 * ESP8266 wifi module, costs something like $3-$5
 * Arduino Leonardo
 * Breadboard adapter for the ESP8266 from embedded-labs.com
@@ -36,7 +36,7 @@ should only flicker on boot and any TX/RX activity.)
 
 Finally, after plenty of trial and error, I found a wiring configuration which worked for me; various sources all 
 over the internet suggested different pins pulled up/down/around/tied to caps/pulled up with resistors, but I found 
-no need for any extra hardware. My wiring diagram is as follows:
+no need for any extra hardware beyond what I’ve already listed. My wiring diagram is as follows:
 
 | Arduino | 3.3-5V Translator | Regulator | ESP8266
 ------------------------------------------------
@@ -246,6 +246,8 @@ String getResponse(String AT_Command, int wait){
 }
 
 {% endhighlight %}
+
+
 
 
 A couple more notes:
