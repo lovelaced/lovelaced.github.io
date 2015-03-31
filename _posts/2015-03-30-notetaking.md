@@ -38,7 +38,7 @@ Finally, after plenty of trial and error, I found a wiring configuration which w
 over the internet suggested different pins pulled up/down/around/tied to caps/pulled up with resistors, but I found 
 no need for any extra hardware beyond what I’ve already listed. My wiring diagram is as follows:
 
-| Arduino    | 3.3-5V Translator | Regulator  | ESP8266     |
+|-- Arduino --   |-- 3.3-5V Translator -- |-- Regulator --  |-- ESP8266 --    |
 | ---------- | ----------------- | ---------- | ----------- |
 | TX         | OE->OE            |            | RX          |
 | RX         |                   |            | TX          |
