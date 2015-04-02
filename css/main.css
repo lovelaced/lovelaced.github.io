@@ -161,7 +161,13 @@ a:hover {
 #about a {
   border-bottom: 1px solid #8085C1;
 }
-
+.post img {
+    max-width: 100%;
+}
+ 
+.post pre {
+    overflow: auto;
+}
 .post a:hover {
   border: none;
 }
