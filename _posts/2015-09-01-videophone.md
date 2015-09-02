@@ -21,7 +21,7 @@ No, of course I don't intend to use it as advertised. It uses an armv5 CPU (ARM9
 One can connect to its WLAN port with an ethernet cable and assign it an IP (or use iptables to forward your internet connection to it, 
 in which case I believe it will give itself an IP) and then telnet in with username/password root/root.
 
-So, long story short, busybox sucks. This system has a lot of functionality but it doesn't have a package manager or any way to compile things, 
+So, long story short, busybox sucks if you actually want to do anything fun. This system has a lot of functionality but it doesn't have a package manager or any way to compile things, 
 so I wanted a full distribution. Debian seemed to fit the bill. Therefore, I went about creating a Debian ARM (armel) image with qemu.
 Note: Try to use a kernel as close to the kernel on your phone as possible. I tried using Debian Wheezy and chroot would not function, therefore I had to use Debian Squeeze.
 
@@ -65,8 +65,8 @@ You can boot into your new installation with the following command:
 
  `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.img-2.6.32-5-versatile -hda hda.img -append "root=/dev/sda1"`
 
-You can install, compile, and whatever else you want to do now, or if you'd rather do it natively on the phone, you can just shut down qemu.
-After this is installed, you're going to want to format your media (I used a USB stick) as a blank ext3 partition. I used gparted for sake of laziness.
+You can install/compile packages and whatever else you want to do now, or if you'd rather do it natively on the phone, you can just shut down qemu.
+After you're sure Debian is properly installed, you're going to want to format your media (I used a USB stick) as a blank ext3 partition. I used gparted for this in the sake of laziness.
 
 Then you'll want to convert your qemu image to a raw one:
 
