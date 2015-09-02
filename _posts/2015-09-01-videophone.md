@@ -3,10 +3,15 @@ T-Vone Part 1
 
 
 *400mhz ARM processor?*
+
 *128MB RAM?*
+
 *USB port, SD card slot?*
+
 *640x480 LCD?*
+
 For less than $4?
+
 
 Yes, okay, I'll take it.
 
@@ -21,9 +26,13 @@ so I wanted a full distribution. Debian seemed to fit the bill. Therefore, I wen
 Note: Try to use a kernel as close to the kernel on your phone as possible. I tried using Debian Wheezy and chroot would not function, therefore I had to use Debian Squeeze.
 
  `$ qemu-img create -f qcow hda.img 10G `
+
  `$ wget http://ftp.de.debian.org/debian/dists/oldoldstable/main/installer-armel/current/images/versatile/netboot/initrd.gz`
+
  `$ wget https://people.debian.org/~aurel32/qemu/armel/vmlinuz-2.6.32-5-versatile`
+
  `$ wget https://people.debian.org/~aurel32/qemu/armel/initrd.img-2.6.32-5-versatile`
+
  `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.img-2.6.32-5-versatile -hda hda.img -append "root=/dev/sda1"`
 
 
@@ -37,6 +46,7 @@ if networking doesn't just work, try:
 Then after the system boots, add tap0 and ethernet to a bridge:
 
  `$ sudo brctl addif br0 eth0`
+
  `$ sudo brctl addif br0 tap0`
 
  
@@ -54,6 +64,7 @@ Then you'll want to convert your qemu image to a raw one:
 Then you should be able to view/verify its partitions with fdisk -l. For some reason, dd seems to fail, so I mounted the paritions to /dev/mapper with kpartx like so:
 
  `$ sudo kpartx -av hda.img.raw`
+
  `$ sudo mount /dev/mapper/loop0p1 /mnt/tmp`
 
  (of course, your exact loop device will vary, just look at the partitions to see which you should mount.)
@@ -69,8 +80,11 @@ In order to use your newly set up Debian system, you'll need to do the following
 
 
  `# cd /mnt/usb`
+
  `# mkdir oldroot`
+
  `# pivot_root . oldroot/`
+
  `# chroot . /bin/bash`
 
 
