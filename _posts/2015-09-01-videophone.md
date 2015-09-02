@@ -26,9 +26,11 @@ so I wanted a full distribution. Debian seemed to fit the bill. Therefore, I wen
 Note: Try to use a kernel as close to the kernel on your phone as possible. I tried using Debian Wheezy and chroot would not function, therefore I had to use Debian Squeeze.
 
 Create a 10gb qemu image:
+
  `$ qemu-img create -f qcow hda.img 10G `
 
 Get all the stuff you need to boot Linux on that image:
+
  `$ wget http://ftp.de.debian.org/debian/dists/oldoldstable/main/installer-armel/current/images/versatile/netboot/initrd.gz`
 
  `$ wget https://people.debian.org/~aurel32/qemu/armel/vmlinuz-2.6.32-5-versatile`
