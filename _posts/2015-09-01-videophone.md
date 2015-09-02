@@ -25,15 +25,21 @@ So, long story short, busybox sucks. This system has a lot of functionality but 
 so I wanted a full distribution. Debian seemed to fit the bill. Therefore, I went about creating a Debian ARM (armel) image with qemu.
 Note: Try to use a kernel as close to the kernel on your phone as possible. I tried using Debian Wheezy and chroot would not function, therefore I had to use Debian Squeeze.
 
+Create a 10gb qemu image:
  `$ qemu-img create -f qcow hda.img 10G `
 
+Get all the stuff you need to boot Linux on that image:
  `$ wget http://ftp.de.debian.org/debian/dists/oldoldstable/main/installer-armel/current/images/versatile/netboot/initrd.gz`
 
  `$ wget https://people.debian.org/~aurel32/qemu/armel/vmlinuz-2.6.32-5-versatile`
 
  `$ wget https://people.debian.org/~aurel32/qemu/armel/initrd.img-2.6.32-5-versatile`
 
- `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.img-2.6.32-5-versatile -hda hda.img -append "root=/dev/sda1"`
+And then boot the image itself:
+
+ `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.gz -hda hda.img -append "root=/dev/ram" `
+
+
 
 
 Wait for the system to boot, then follow through with the installation process; most mirrors will fail, but I found Uzbekistan still has proper Debian Squeeze repos so that should work.
@@ -52,6 +58,10 @@ Then after the system boots, add tap0 and ethernet to a bridge:
  
 I also have NAT / internet sharing set up via iptables as explained in the Arch Wiki "Internet Sharing" article.
 You can check if you're actually transferring data with the nload utility (or whatever else you want to use).
+
+You can boot into your new installation with the following command:
+
+ `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.img-2.6.32-5-versatile -hda hda.img -append "root=/dev/sda1"`
 
 You can install, compile, and whatever else you want to do now, or if you'd rather do it natively on the phone, you can just shut down qemu.
 After this is installed, you're going to want to format your media (I used a USB stick) as a blank ext3 partition. I used gparted for sake of laziness.
