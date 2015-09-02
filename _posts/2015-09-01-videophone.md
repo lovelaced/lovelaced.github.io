@@ -99,6 +99,7 @@ In order to use your newly set up Debian system, you'll need to do the following
 
  `# chroot . /bin/bash`
 
+Be sure to bind your system mountpoints accordingly: http://superuser.com/questions/165116/mount-dev-proc-sys-in-a-chroot-environment
 
 And then, after all that, this should get you into a bash shell where you can have all the fun you'd like. Personally, I installed a tiling window manager, though I have yet to test it with a keyboard.
 
