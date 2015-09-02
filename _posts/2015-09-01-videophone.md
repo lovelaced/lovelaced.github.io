@@ -88,7 +88,7 @@ In order to use your newly set up Debian system, you'll need to do the following
  `# chroot . /bin/bash`
 
 
-And then, after all that, this should get you into a bash shell where you can have all the fun you'd like. Personally, I installed a tiling window manager, thought I have yet to test it with a keyboard.
+And then, after all that, this should get you into a bash shell where you can have all the fun you'd like. Personally, I installed a tiling window manager, though I have yet to test it with a keyboard.
 
 ![ACN Iris 3000, rice edition](/assets/vone1.jpg)
 
