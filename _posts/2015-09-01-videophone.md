@@ -2,9 +2,13 @@ T-Vone Part 1
 ==============
 
 *400mhz ARM processor?*
+
 *128MB RAM?*
+
 *USB port, SD card slot?*
+
 *640x480 LCD?*
+
 For less than $4?
 
 Yes, okay, I'll take it.
@@ -20,19 +24,29 @@ so I wanted a full distribution. Debian seemed to fit the bill. Therefore, I wen
 Note: Try to use a kernel as close to the kernel on your phone as possible. I tried using Debian Wheezy and chroot would not function, therefore I had to use Debian Squeeze.
 
  `$ qemu-img create -f qcow hda.img 10G `
+
  `$ wget http://ftp.de.debian.org/debian/dists/oldoldstable/main/installer-armel/current/images/versatile/netboot/initrd.gz`
+
  `$ wget https://people.debian.org/~aurel32/qemu/armel/vmlinuz-2.6.32-5-versatile`
+
  `$ wget https://people.debian.org/~aurel32/qemu/armel/initrd.img-2.6.32-5-versatile`
+
  `$ qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.img-2.6.32-5-versatile -hda hda.img -append "root=/dev/sda1"`
+
 
 Wait for the system to boot, then follow through with the installation process; most mirrors will fail, but I found Uzbekistan still has proper Debian Squeeze repos so that should work.
 if networking doesn't just work, try:
 
+
  `$ sudo qemu-system-arm -M versatilepb -kernel vmlinuz-2.6.32-5-versatile -initrd initrd.gz -hda hda.img -append "root=/dev/ram" -net nic -net tap,ifname=tap0,script=no,downscript=no`
+
  
 Then after the system boots, add tap0 and ethernet to a bridge:
+
  `$ sudo brctl addif br0 eth0`
+
  `$ sudo brctl addif br0 tap0`
+
  
 I also have NAT / internet sharing set up via iptables as explained in the Arch Wiki "Internet Sharing" article.
 You can check if you're actually transferring data with the nload utility (or whatever else you want to use).
@@ -44,18 +58,33 @@ Then you'll want to convert your qemu image to a raw one:
 
  `$ qemu-img convert hda.img -O raw hda.img.raw`
 
-Then you should be able to view/verify its partitions with fdisk -l, and dd it to your storage media:
 
- `$ sudo dd if=hda.img.raw of=/dev/sdx`
+Then you should be able to view/verify its partitions with fdisk -l. For some reason, dd seems to fail, so I mounted the paritions to /dev/mapper with kpartx like so:
+
+ `$ sudo kpartx -av hda.img.raw`
+
+ `$ sudo mount /dev/mapper/loop0p1 /mnt/tmp`
+
+ (of course, your exact loop device will vary, just look at the partitions to see which you should mount.)
+
+ Then we can finally transfer everything over to the USB stick:
+
+ `$ sudo rsync -av /mnt/tmp /mnt/usb`
+
  
 Once you insert this into the phone, it will automount (in the case of a USB stick) to /mnt/usb. I believe the SD card will automount to /mnt/sd, but I haven't verified this.
 
 In order to use your newly set up Debian system, you'll need to do the following (on the phone), where you're likely logged in as root:
 
+
  `# cd /mnt/usb`
+
  `# mkdir oldroot`
+
  `# pivot_root . oldroot/`
+
  `# chroot . /bin/bash`
+
 
 And then, after all that, this should get you into a bash shell where you can have all the fun you'd like. Personally, I installed a tiling window manager, thought I have yet to test it with a keyboard.
 
