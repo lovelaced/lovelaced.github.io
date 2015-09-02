@@ -1,6 +1,6 @@
 T-Vone Part 1
 ==============
-
+ 
 
 *400mhz ARM processor?*
 
@@ -10,13 +10,13 @@ T-Vone Part 1
 
 *640x480 LCD?*
 
-For less than $4?
+__*For less than $4?*__
 
 
 Yes, okay, I'll take it.
 
-What this device is is an ACN Iris 3000; a deprecated SIP video phone produced by a shady company with less than great service.
-No, of course I don't intend to use it as advertised. It uses an armv5 CPU (ARM926EJ-S) running some GPL-violating version of Linux (2.6.22.6) with closed-source modules and has support for external storage, so naturally, it's begging to be put to a purpose which isn't calling people from one's cubicle.
+What this device is is an ACN Iris 3000: a deprecated SIP video phone produced by a shady company with less than great service.
+Naturally, I don't intend to use it as advertised. It runs Linux 2.6.22.6 with some GPL-violating closed-source modules on an armv5 (ARM926EJ-S) processor and has support for external storage, so naturally, it's begging to be put to a purpose which isn't calling people from one's cubicle.
 
 One can connect to its WLAN port with an ethernet cable and assign it an IP (or use iptables to forward your internet connection to it, 
 in which case I believe it will give itself an IP) and then telnet in with username/password root/root.
