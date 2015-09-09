@@ -8,7 +8,7 @@ T-Vone Part 1
 
 *USB port, SD card slot?*
 
-*640x480 LCD?*
+*800x480 LCD?*
 
 __*For less than $4?*__
 
