@@ -1,0 +1,114 @@
+body {
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+}
+
+header, footer {
+    background-color: #282a2e;
+    padding: 1rem;
+    text-align: left;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    height: 100vh;
+    padding: 2rem;
+}
+
+#terminal {
+    background-color: #1d1f21;
+    color: #c5c8c6;
+    border: 1px solid #282a2e;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    white-space: pre-wrap;
+}
+
+section {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+h2 {
+    color: #8abeb7;
+    font-size: 14px;
+    margin: 0 0 1rem;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li::before {
+    content: '$ ';
+    color: #c5c8c6;
+}
+
+li span {
+    color: #f92672;
+}
+
+a {
+    color: #4ec4d4;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Colorized Syntax */
+#about h2::before,
+#skills h2::before,
+#interests h2::before,
+#contact h2::before {
+    content: 'jet@/tf/:~$ ';
+    color: #5A5A5A;
+}
+
+/* Syntax Highlighting */
+#about h2::after {
+    content: 'whoami';
+    color: #f92672;
+}
+
+#skills h2::after {
+    content: ' skills/';
+    color: #66d9ef;
+}
+
+#interests h2::after {
+    content: ' interests.txt';
+    color: #e6db74;
+}
+
+#contact h2::after {
+    content: ' contact.txt';
+    color: #fd971f;
+}
+
+#skills ul li span:first-of-type {
+    color: #f92672;
+}
+
+#skills ul li span:last-of-type {
+    color: #c5c8c6;
+}
+
+#contact ul li a span {
+    color: #4ec4d4;
+}
