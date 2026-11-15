@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>jet.tf · colour test card</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #050505; color: #ddd; font: 14px/1.4 ui-monospace, Menlo, monospace; overflow: hidden; }
+      canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; }
+      .labels { position: fixed; inset: 0 0 auto 0; height: 60vh; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 1fr); pointer-events: none; }
+      .labels div { display: flex; align-items: flex-end; padding: 0 0 1.2vh 6.5%; color: #aaa; text-shadow: 0 1px 2px #000; }
+      .ramp { position: fixed; left: 0; right: 0; top: 95.5vh; display: flex; justify-content: space-between; padding: 0 8px; color: #888; }
+      .ramp span { position: absolute; transform: translateX(-50%); }
+      .status { position: fixed; left: 8px; top: 61.5vh; color: #ccc; white-space: pre; }
+      .status a { color: #8cf; }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div class="labels">
+      <div>white 1x</div><div>white 2x</div><div>white 4x</div><div>white 8x</div>
+      <div>srgb green</div><div>p3 green</div><div>olo, p3 edge</div><div>uranium glass x2</div>
+      <div>srgb red</div><div>p3 red</div><div>cobalt violet</div><div>scheele's green</div>
+    </div>
+    <div class="ramp"><span style="left:12.5%">1x</span><span style="left:25%">2x</span><span style="left:50%">4x</span><span style="left:99%">8x</span></div>
+    <div class="status" id="s">starting…</div>
+    <script type="module" src="/src/spike.ts"></script>
+  </body>
+</html>

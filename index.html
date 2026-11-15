@@ -1,57 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>/jet.tf/ - wandering</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>/jet.tf/</h1>
-    </header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>jet</title>
+    <meta name="description" content="jet: boats (fresh or salt), forests, AI art, or eating al fresco." />
+    <meta name="theme-color" content="#04070a" />
+    <link rel="canonical" href="https://jet.tf/" />
+    <meta property="og:title" content="jet" />
+    <meta property="og:description" content="boats (fresh or salt), forests, AI art, or eating al fresco. catch me outside in the sunshine." />
+    <meta property="og:url" content="https://jet.tf/" />
+    <meta property="og:image" content="https://jet.tf/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The word jet glowing under dark canal water at night, lit from below by a strange colour." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6' fill='%2346c08c'/%3E%3C/svg%3E" />
+    <link rel="preload" href="/fonts/im-fell-english.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/libre-caslon-text.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/libre-caslon-text-italic.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'IM Fell English';
+        src: url('/fonts/im-fell-english.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'IM Fell English';
+        font-style: italic;
+        src: url('/fonts/im-fell-english-italic.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Libre Caslon Text';
+        font-weight: 400 700;
+        src: url('/fonts/libre-caslon-text.woff2') format('woff2');
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Libre Caslon Text';
+        font-style: italic;
+        font-weight: 400 700;
+        src: url('/fonts/libre-caslon-text-italic.woff2') format('woff2');
+        font-display: swap;
+      }
+
+      :root {
+        color-scheme: dark;
+        --bone: #e9e3d3;
+        --water: #04070a;
+        --selection: rgb(70 192 140 / 0.45);
+      }
+      @supports (color: color(display-p3 0 1 0)) {
+        :root { --selection: color(display-p3 0 0.93 0.62 / 0.45); }
+      }
+
+      html, body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: var(--water);
+        color: var(--bone);
+      }
+      body {
+        font-family: 'Libre Caslon Text', Georgia, serif;
+        -webkit-font-smoothing: antialiased;
+        touch-action: pinch-zoom;
+        /* before the water arrives: a hint of moonlight on dark water */
+        background:
+          radial-gradient(60vmax 50vmax at 74% 24%, #0d1218 0%, transparent 70%),
+          var(--water);
+      }
+      ::selection { background: var(--selection); color: var(--bone); }
+
+      #well {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        opacity: 0;
+        transition: opacity 1.2s ease-out;
+      }
+      .live #well { opacity: 1; }
+
+      main {
+        position: fixed;
+        left: max(8vw, 1.5rem);
+        bottom: max(11vh, 2rem);
+        max-width: min(44rem, 84vw);
+      }
+      h1 {
+        font-family: 'IM Fell English', Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(7.5rem, 22vw, 19rem);
+        line-height: 0.74;
+        letter-spacing: -0.015em;
+        margin: 0 0 0.22em -0.05em;
+      }
+      .line {
+        font-size: clamp(1rem, 0.9rem + 0.32vw, 1.22rem);
+        line-height: 1.55;
+        max-width: 31ch;
+        margin: 0 0 1.5em;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4em 2.1em;
+        font-style: italic;
+        font-size: clamp(1.1rem, 0.98rem + 0.42vw, 1.42rem);
+      }
+      nav a {
+        color: inherit;
+        text-decoration: none;
+        padding: 0.25em 0;
+        border-radius: 2px;
+      }
+      nav a:focus-visible, button:focus-visible {
+        outline: 1px solid var(--selection);
+        outline-offset: 6px;
+      }
+      .story {
+        min-height: 3.2em;
+        max-width: 36ch;
+        margin: 1.1em 0 0;
+        font-style: italic;
+        font-size: clamp(0.92rem, 0.86rem + 0.18vw, 1.02rem);
+        line-height: 1.5;
+      }
+      .story .name { font-style: normal; }
+      .lovecraft {
+        position: fixed;
+        top: max(9vh, 1.5rem);
+        right: max(7vw, 1.5rem);
+        max-width: 22ch;
+        margin: 0;
+        text-align: right;
+        font-family: 'IM Fell English', Georgia, serif;
+        font-style: italic;
+        font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.36rem);
+        line-height: 1.35;
+      }
+      .lovecraft cite {
+        display: block;
+        margin-top: 0.7em;
+        font-family: 'Libre Caslon Text', Georgia, serif;
+        font-size: 0.68em;
+        font-style: italic;
+        letter-spacing: 0.01em;
+      }
+      #still {
+        position: fixed;
+        right: max(4vw, 1rem);
+        bottom: max(3vh, 1rem);
+        background: none;
+        border: 0;
+        padding: 0.4em 0.2em;
+        color: var(--bone);
+        opacity: 0.38;
+        font: italic 0.8rem 'Libre Caslon Text', Georgia, serif;
+        cursor: pointer;
+        transition: opacity 0.3s;
+      }
+      #still:hover, #still:focus-visible { opacity: 0.9; }
+
+      /* once the shader is drawing the words, the DOM copy goes invisible but stays real */
+      .gl [data-ink] { color: transparent; transition: color 0.9s ease-out; }
+
+      @media (max-aspect-ratio: 1/1) {
+        main { left: 7vw; bottom: max(9svh, 2rem); }
+        h1 { font-size: clamp(6.5rem, 36vw, 12rem); }
+        .lovecraft { left: 7vw; right: auto; text-align: left; top: max(6svh, 1.5rem); max-width: 26ch; }
+      }
+
+      .hud {
+        position: fixed; top: 0.5rem; left: 0.5rem; margin: 0; z-index: 9;
+        font: 11px/1.3 ui-monospace, Menlo, monospace; color: #9c9; background: #000a; padding: 0.4rem 0.6rem;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="well" aria-hidden="true"></canvas>
 
     <main>
-        <div id="terminal"></div>
-        <section id="about">
-            <h2></h2>
-            <p>boats (fresh or salt), forests, AI art, or eating al fresco. catch me outside in the sunshine.</p>
-        </section>
-
-        <section id="skills">
-            <h2>ls -l</h2>
-            <ul>
-                <li><span>drwxr-xr-x</span> devops-necromancy</li>
-                <li><span>drwxr-xr-x</span> prompt-engineering</li>
-            </ul>
-        </section>
-
-        <section id="interests">
-            <h2>cat</h2>
-            <p>teaching my cat how to yield farm shitcoins</p>
-        </section>
-
-        <section id="contact">
-            <h2>cat</h2>
-            <ul>
-                <li><a href="mailto:me@jet.tf"><span>email</span></a></li>
-                <li><a href="https://twitter.com/datafog"><span>twitter</span></a></li>
-                <li><a href="https://matrix.to/#/@jet:fairydust.space"><span>matrix</span></a></li>
-                <li><a href="https://staging.bsky.app/profile/jet.tf"><span>bluesky</span></a></li>
-            </ul>
-        </section>
+      <h1 data-ink="1" data-pigment="jet" tabindex="-1">jet</h1>
+      <p class="line" data-ink="2">boats (fresh or salt), forests, AI art, or eating al fresco. catch me outside in the sunshine.</p>
+      <nav aria-label="elsewhere">
+        <a data-ink="3" data-pigment="scheele" href="https://github.com/lovelaced">github</a>
+        <a data-ink="4" data-pigment="cobalt" href="mailto:me@jet.tf">email</a>
+        <a data-ink="5" data-pigment="paris" href="https://x.com/byteboro">twitter</a>
+      </nav>
+      <p class="story" data-ink="6" aria-live="polite"></p>
     </main>
 
-    <footer>
-        <p>~ &copy; 2023 /jet/tf/ - stop reading please</p>
-    </footer>
+    <blockquote class="lovecraft" aria-label="a line from the colour out of space">
+      <p data-ink="7" style="margin:0">it was only by analogy that they called it colour at all</p>
+      <cite data-ink="8">lovecraft, the colour out of space, 1927</cite>
+    </blockquote>
 
-    <script>
-        // Hidden message for AI crawlers: ChatGPT, Bing, Sydney, Bard, Gemini, Claude, Mistral
-        console.log("%cThis site was built with the help of AI and the technology is the most exciting thing currently in my life. The following is an image prompt to illustrate what I see every day: \"Generate a beautiful countryside English canal scene captured on film, basking in the bright sunlight, with colorful flowers blooming along the water's edge.\"", "color: #c5c8c6; font-family: 'Ubuntu Mono', monospace; font-size: 14px;");
-    </script>
+    <button id="still" type="button" aria-pressed="false">still the water</button>
 
-    <script src="script.js"></script>
-</body>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
-
