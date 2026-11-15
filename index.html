@@ -87,7 +87,7 @@
       main {
         position: fixed;
         left: max(8vw, 1.5rem);
-        bottom: max(11vh, 2rem);
+        bottom: max(5vh, 1.25rem);
         max-width: min(44rem, 84vw);
       }
       h1 {
@@ -122,7 +122,9 @@
         outline-offset: 6px;
       }
       .story {
-        min-height: 3.2em;
+        /* fixed height: a story appearing must never push the words above it */
+        height: 6em;
+        overflow: visible;
         max-width: 36ch;
         margin: 1.1em 0 0;
         font-style: italic;
@@ -169,7 +171,7 @@
       .gl [data-ink] { color: transparent; transition: color 0.9s ease-out; }
 
       @media (max-aspect-ratio: 1/1) {
-        main { left: 7vw; bottom: max(9svh, 2rem); }
+        main { left: 7vw; bottom: max(3svh, 1rem); }
         h1 { font-size: clamp(6.5rem, 36vw, 12rem); }
         .lovecraft { left: 7vw; right: auto; text-align: left; top: max(6svh, 1.5rem); max-width: 26ch; }
       }
